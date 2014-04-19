@@ -1,0 +1,26 @@
+{
+  "name": "bb-notification",
+  "author": "Christophe Sicard",
+  "description": "Backbone notification app",
+  "version": "0.1.0",
+  "homepage": "https://github.com/tophsic/bb-notification",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tophsic/bb-notification"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.7.0",
+    "gulp": "~3.5.0",
+    "gulp-util": "~2.2.13",
+    "gulp-concat": "~2.1.7",
+    "gulp-wrap-define": "0.0.2",
+    "gulp-rename": "~0.2.2",
+    "gulp-uglify": "~0.2.0",
+    "gulp-header": "~1.0.2",
+    "gulp-compass": "~1.1.1",
+    "lazypipe": "~0.2.0",
+    "streamqueue": "0.0.5",
+    "gulp-wrap": "^0.3.0",
+    "js-string-escape": "^1.0.0"
+  }
+}

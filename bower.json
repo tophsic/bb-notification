@@ -1,0 +1,15 @@
+{
+  "name": "bb-notification",
+  "version": "0.1.0",
+  "dependencies": {
+    "commonjs-require-definition": "~0.1.2",
+    "lodash": "~2.4.1",
+    "jquery": "~1.10.x",
+    "backbone": "~1.1.0",
+    "humane-js": "~3.1.0",
+    "jquery-file-upload": "~9.5.4",
+	"mocha": "1.18.2",
+	"chai": "1.9.1",
+	"sinon": "1.9.1"
+  }
+}
