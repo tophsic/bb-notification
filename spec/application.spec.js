@@ -4,7 +4,13 @@ describe("Application", function () {
   });
 
   it("Notification instanciation", function () {
-    var notification = new Notification();
+    var notification = new Notification({
+        url: 'notification'
+    });
     expect(notification).to.be.an("object");
+  });
+
+  it("Notification instanciation error", function () {
+    expect(function() {new Notification({});}).to.throw(Error);
   });
 });
