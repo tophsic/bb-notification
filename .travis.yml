@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "0.11"
+
+before_install:
+  npm install
+  npm install bower
+  bundle install
+  bower install
+before_script: gulp
