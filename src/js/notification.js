@@ -19,9 +19,13 @@ var Notification = function(options) {
 	this.initialize.apply(this, arguments);
 };
 
+Notification.prototype.defaults = {
+  url: null
+};
+
 Notification.prototype.initialize = function(options) {
-	// Options de base
-	this.options = options;
+  this.options = options;
+   _.defaults(this.options, this.defaults);
 
 	if (!this.options.url) {
 		throw new Error('Url must be set to use notifications');
