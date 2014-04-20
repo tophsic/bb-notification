@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Notification Backbone.js Tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- Mocha styles. -->
+    <link rel="stylesheet" href="css/tests.css" />
+
+    <!-- Test libraries. -->
+    <script src="js/mocha.js"></script>
+    <script src="js/chai.js"></script>
+    <script src="js/sinon.js"></script>
+    <script src="js/assert.js"></script>
+    <script src="js/behavior.js"></script>
+    <script src="js/call.js"></script>
+    <script src="js/collection.js"></script>
+    <script src="js/match.js"></script>
+    <script src="js/spy.js"></script>
+    <script src="js/mock.js"></script>
+    <script src="js/sandbox.js"></script>
+    <script src="js/stub.js"></script>
+
+    <script src="js/vendors.js"></script>
+    <script src="js/notification.js"></script>
+    <script>
+        var Notification = require('notification');
+    </script>
+
+    <!-- Test Setup -->
+    <script>
+      // Setup.
+      var expect = chai.expect;
+      mocha.setup("bdd");
+
+      // Run tests on window load event.
+      window.onload = function () {
+        (window.mochaPhantomJS || mocha).run();
+      };
+    </script>
+
+    <!-- Tests. -->
+    <script src="js/specs.js"></script>
+  </head>
+  <body>
+    <div id="notification"></div>
+    <div id="mocha"></div>
+  </body>
+</html>
+
