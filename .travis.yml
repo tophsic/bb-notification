@@ -3,9 +3,12 @@ node_js:
   - "0.11"
 
 before_install:
-  npm install
-  npm install bower
-  npm install mocha-phantomjs
-  bundle install
-  bower install
+  - npm install
+  - npm install -g bower
+  - npm install -g mocha-phantomjs
+  - bundle install
+  - bower install
 before_script: gulp
+script:
+  - cd spec
+  - mocha-phantomjs ../web/tests.html 
