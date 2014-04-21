@@ -23,5 +23,5 @@
     "gulp-wrap": "^0.3.0",
     "js-string-escape": "^1.0.0"
   },
-  "test": "echo 'Hello'"
+  "test": "cd spec; mocha-phantomjs ../web/tests.html"
 }

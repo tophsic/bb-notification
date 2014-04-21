@@ -5,6 +5,7 @@ node_js:
 before_install:
   npm install
   npm install bower
+  npm install mocha-phantomjs
   bundle install
   bower install
 before_script: gulp
