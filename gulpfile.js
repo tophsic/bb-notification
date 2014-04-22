@@ -87,7 +87,7 @@ gulp.task('tests', function() {
         './bower_components/mocha/mocha.js',
         './bower_components/chai/chai.js',
         './bower_components/sinon/lib/sinon.js',
-        './bower_components/sinon/lib/sinon/*.js'
+        './bower_components/sinon/lib/sinon/**/*.js'
     ])
         .pipe(gulp.dest('./web/js'));
 });
