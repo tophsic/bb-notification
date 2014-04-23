@@ -43,20 +43,14 @@ describe("Collection", function () {
         JSON.stringify([
           {
             link: "notification/1",
-            status: "pending",
-            progress: 0,
             message: "Notification 1"
           },
           {
             link: "notification/2",
-            status: "pending",
-            progress: 0,
             message: "Notification 2"
           },
           {
             link: "notification/3",
-            status: "pending",
-            progress: 0,
             message: "Notification 3"
           }
         ])

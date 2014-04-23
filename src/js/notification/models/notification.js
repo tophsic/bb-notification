@@ -11,8 +11,6 @@ NotificationModel = Backbone.Model.extend({
   defaults: function () {
     return {
       link: "",
-      status: "",
-      progress: 0,
       message: "This is an empty notification"
     };
   }

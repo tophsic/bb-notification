@@ -46,8 +46,6 @@ describe("Item view", function () {
 
     this.view.model.set({
       link: "notification/1",
-      status: "pending",
-      progress: 0,
       message: "Notification 1"
     });
   });
