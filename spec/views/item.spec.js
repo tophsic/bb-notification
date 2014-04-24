@@ -39,7 +39,6 @@ describe("Item view", function () {
       var $message = $(".notification-item .message");
 
       expect($message.text()).to.equal("Notification 1");
-      expect($message.hasClass('pending')).to.be.true;
 
       done();
     });
