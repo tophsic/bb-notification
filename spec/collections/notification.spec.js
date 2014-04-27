@@ -12,8 +12,11 @@ describe("Collection", function () {
   });
 
   it("instantiate with an error", function () {
-    var Collection = this.Collection;
-    expect(function() {new Collection();}).to.throw(Error);
+    var Collection = this.Collection,
+        fn = function() {
+          new Collection();
+        };
+    expect(fn).to.throw(Error);
   });
 
   it("has default values", function() {
