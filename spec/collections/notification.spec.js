@@ -28,7 +28,7 @@ describe("Collection", function () {
     expect(collection).to.have.length(0);
   });
 
-  it("fetch notification", function() {
+  it("fetch notifications", function() {
     var server = sinon.fakeServer.create();
 
     var collection = new this.Collection(null, {
@@ -44,7 +44,19 @@ describe("Collection", function () {
           {
             link: "notification/1",
             message: "Notification 1"
-          },
+          }
+        ])
+    );
+
+    expect(collection).to.be.ok;
+    expect(collection).to.have.length(1);
+
+    collection.fetch();
+
+    server.requests[1].respond(
+        200,
+        { "Content-Type": "application/json" },
+        JSON.stringify([
           {
             link: "notification/2",
             message: "Notification 2"
@@ -57,7 +69,7 @@ describe("Collection", function () {
     );
 
     expect(collection).to.be.ok;
-    expect(collection).to.have.length(3);
+    expect(collection).to.have.length(2);
 
     server.restore();
   });
