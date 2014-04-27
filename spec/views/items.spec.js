@@ -2,7 +2,12 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 
+
+
 describe("Items view", function() {
+
+
+
   before(function() {
     this.$fixture = $("<div id='notification-items'></div>");
     this.View = require('notification/views/items');
@@ -16,69 +21,65 @@ describe("Items view", function() {
     $("#fixtures").empty();
   });
 
-  it("instanciate", function() {
-    var view = new this.View({
-      el: this.$fixture,
-      collection: Backbone.Events
-    });
 
-    expect(this.view).to.be.an("object");
 
-    view.remove();
-  });
-
-  it("instanciate wit an error", function() {
-    expect(function() {
-      var view = new this.View({
-        el: this.$fixture
-      });
-    }).to.throw(Error);
-  });
-
-  describe("render", function() {
-    it("empty list", function() {
+  describe("instantiate", function() {
+    it("normally", function() {
       var view = new this.View({
         el: this.$fixture,
         collection: Backbone.Events
       });
-      var $items = $("#notification-items ul");
 
-      expect($items.hasClass("notification-items")).to.be.true;
+      expect(this.view).to.be.an("object");
 
       view.remove();
     });
 
-    it("listen collection sync", sinon.test(function() {
-      var collection = Backbone.Events;
+    it("with an error", function() {
+      var fn = function() {
+        var view = new this.View({
+          el: this.$fixture
+        });
+      };
+      expect(fn).to.throw(Error);
+    });
+  });
 
-      var view = new this.View({
+
+
+  describe("render", function() {
+    beforeEach(function() {
+      this.view = new this.View({
         el: this.$fixture,
-        collection: collection
+        collection: new Backbone.Collection()
       });
+    });
 
-      this.stub(view);
+    afterEach(function() {
+      this.view.remove();
+    });
 
-      collection.trigger('sync', collection, [
+    it("empty list", function() {
+      var $items = $("#notification-items ul");
+
+      expect($items.hasClass("notification-items")).to.be.true;
+    });
+
+    it("listen collection sync", sinon.test(function() {
+      this.stub(this.view);
+
+      this.view.collection.trigger('sync', this.view.collection, [
         {
           link: "notification/1",
           message: "Notification 1"
         }
       ]);
 
-      expect(view.onCollectionSync).to.have.been.called;
-
-      view.remove();
+      expect(this.view.onCollectionSync).to.have.been.called;
     }));
 
-    it("render items", sinon.test(function() {
-      var collection = Backbone.Events;
-
-      var view = new this.View({
-        el: this.$fixture,
-        collection: collection
-      });
-
-      collection.trigger('sync', collection, [
+    it("render items", function() {
+      this.view.collection.trigger('sync', this.view.collection, [
         new Backbone.Model({
           link: "notification/1",
           message: "Notification 1"
@@ -92,8 +93,26 @@ describe("Items view", function() {
       var $items = $("#notification-items ul li");
 
       expect($items).to.have.length(2);
+      var message = $items.first().find('.message');
+      expect(message).to.be.ok;
+      expect(message.text()).to.be.equal('Notification 1');
 
-      view.remove();
-    }));
+      this.view.collection.trigger('sync', this.view.collection, [
+        new Backbone.Model({
+          link: "notification/3",
+          message: "Notification 3"
+        })
+      ]);
+
+      $items = $("#notification-items ul li");
+
+      expect($items).to.have.length(1);
+      var message = $items.first().find('.message');
+      expect(message).to.be.ok;
+      expect(message.text()).to.be.equal('Notification 3');
+    });
   });
+
+
+
 });
