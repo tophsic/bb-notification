@@ -10,8 +10,16 @@ var Backbone = require('backbone');
 var ItemsView = Backbone.View.extend({
   template: _.template(require('notification/templates/items')),
 
+  defaults: {
+    item: {
+      view: 'notification/views/item',
+      template: null,
+    }
+  },
+
   initialize: function(options) {
     this.options = options || {};
+    _.defaults(this.options, this.defaults);
 
     if (!this.options.collection) {
       throw new Error('Collection must be set');
@@ -19,20 +27,32 @@ var ItemsView = Backbone.View.extend({
 
     this.collection = this.options.collection;
     this.listenTo(this.collection, {
-      "sync":  function() { this.onCollectionSync(); }
+      "sync":  function() { this.onCollectionSync.apply(this, arguments); }
     });
+
+    this.itemView = require(this.options.item.view);
 
     this.$el.html(this.template()) ;
     this.render();
   },
 
-  render: function () {
+  render: function() {
     this.$el.html(this.template());
     return this;
   },
 
   onCollectionSync: function(collection, notifications) {
-    //TODO implement
+    var view = this,
+        content = [];
+
+    _.map(notifications, function(notification) {
+      var itemView = new view.itemView({
+        model: notification
+      });
+      content.push(itemView.render().el);
+    });
+
+    this.$('ul').html(content);
   }
 });
 
