@@ -1,11 +1,11 @@
 var $ = require('jquery');
 
-describe("Item view", function () {
-  before(function () {
+describe("Item view", function() {
+  before(function() {
     this.$fixture = $("<div id='notification-item'></div>");
   });
 
-  beforeEach(function () {
+  beforeEach(function() {
     this.$fixture.empty().appendTo($("#fixtures"));
 
     var View = require('notification/views/item');
@@ -16,36 +16,38 @@ describe("Item view", function () {
     });
   });
 
-  afterEach(function () {
+  afterEach(function() {
     this.view.model.destroy();
   });
 
-  after(function () {
+  after(function() {
     $("#fixtures").empty();
   });
 
-  it("instanciate", function () {
+  it("instantiate", function() {
     expect(this.view).to.be.an("object");
   });
 
-  it("can render an empty notification", function () {
-    var $message = $(".notification-item .message");
-
-    expect($message.text()).to.equal("This is an empty notification");
-  });
-
-  it("can render a normal notification", function(done) {
-    this.view.model.once("change", function () {
+  describe("render", function() {
+    it("an empty notification", function() {
       var $message = $(".notification-item .message");
 
-      expect($message.text()).to.equal("Notification 1");
-
-      done();
+      expect($message.text()).to.equal("This is an empty notification");
     });
 
-    this.view.model.set({
-      link: "notification/1",
-      message: "Notification 1"
+    it("a normal notification", function(done) {
+      this.view.model.once("change", function() {
+        var $message = $(".notification-item .message");
+
+        expect($message.text()).to.equal("Notification 1");
+
+        done();
+      });
+
+      this.view.model.set({
+        link: "notification/1",
+        message: "Notification 1"
+      });
     });
   });
 });
