@@ -16,6 +16,7 @@ NotificationCollection = Backbone.Collection.extend({
   },
 
   initialize: function(models, options) {
+    this.constructor.__super__.initialize.call(this, models, options);
     this.options = options;
 
     _.defaults(this.options, this.defaults);

@@ -11,8 +11,6 @@ var ItemView = Backbone.View.extend({
   template: _.template(require('notification/templates/item')),
 
   initialize: function(options) {
-    this.$el.html(this.template(this.model.toJSON())) ;
-
     this.listenTo(this.model, {
       "change": this.render,
       "destroy": this.remove

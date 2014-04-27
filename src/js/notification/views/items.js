@@ -32,7 +32,6 @@ var ItemsView = Backbone.View.extend({
 
     this.itemView = require(this.options.item.view);
 
-    this.$el.html(this.template()) ;
     this.render();
   },
 
@@ -47,7 +46,7 @@ var ItemsView = Backbone.View.extend({
 
     _.map(notifications, function(notification) {
       var itemView = new view.itemView({
-        model: notification
+        model: new view.collection.model(notification)
       });
       content.push(itemView.render().el);
     });

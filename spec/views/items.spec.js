@@ -80,14 +80,14 @@ describe("Items view", function() {
 
     it("render items", function() {
       this.view.collection.trigger('sync', this.view.collection, [
-        new Backbone.Model({
+        {
           link: "notification/1",
           message: "Notification 1"
-        }),
-        new Backbone.Model({
+        },
+        {
           link: "notification/2",
           message: "Notification 2"
-        })
+        }
       ]);
 
       var $items = $("#notification-items ul li");
@@ -98,10 +98,10 @@ describe("Items view", function() {
       expect(message.text()).to.be.equal('Notification 1');
 
       this.view.collection.trigger('sync', this.view.collection, [
-        new Backbone.Model({
+        {
           link: "notification/3",
           message: "Notification 3"
-        })
+        }
       ]);
 
       $items = $("#notification-items ul li");
