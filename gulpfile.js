@@ -86,6 +86,7 @@ gulp.task('tests', function() {
     gulp.src([
         './bower_components/mocha/mocha.js',
         './bower_components/chai/chai.js',
+        './bower_components/sinon-chai/lib/sinon-chai.js',
         './bower_components/sinon/lib/sinon.js',
         './bower_components/sinon/lib/sinon/**/*.js'
     ])
