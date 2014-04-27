@@ -4,6 +4,7 @@
   "description": "Backbone notification app",
   "version": "0.1.0",
   "homepage": "https://github.com/tophsic/bb-notification",
+  "main": "notification.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/tophsic/bb-notification"

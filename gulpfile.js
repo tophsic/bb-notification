@@ -115,6 +115,28 @@ gulp.task('notification', function() {
         .pipe(build('notification', '.'));
 });
 
+gulp.task('build', function() {
+    queue({ objectMode: true },
+        gulp.src([
+            './src/js/notification.js',
+            './src/js/notification/**/*.js'
+        ]),
+        gulp.src('./src/js/notification/templates/*.html')
+            .pipe(wrap('module.exports = "<%= escape(contents) %>"', {}, {
+                imports: {
+                    escape: escape
+                }
+            }))
+        )
+        .pipe(define({
+            root: './src/js',
+            define: 'require.register'
+        }))
+        .pipe(concat('notification.js'))
+        .pipe(gulp.dest('.'))
+        ;
+});
+
 gulp.task('spec', function() {
     queue({ objectMode: true },
         gulp.src([
