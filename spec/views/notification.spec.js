@@ -74,12 +74,20 @@ describe("Notification view", function() {
 
     it("list", function() {
       this.view.collection.length = 1;
-      this.view.collection.trigger('sync', this.view.collection, []);
+      this.view.collection.trigger('sync');
 
       var $items = $("#notification .notification");
 
       expect($items).to.have.length(1);
       expect($items.hasClass("notify")).to.be.true;
+
+      this.view.collection.length = 0;
+      this.view.collection.trigger('sync');
+
+      var $items = $("#notification .notification");
+
+      expect($items).to.have.length(1);
+      expect($items.hasClass("notify")).to.be.false;
     });
 
   });
