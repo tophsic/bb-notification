@@ -11,6 +11,6 @@ describe("Application", function () {
   });
 
   it("Notification instanciation error", function () {
-    expect(function() {new Notification({});}).to.throw(Error);
+    expect(function() {new Notification();}).to.throw(Error);
   });
 });

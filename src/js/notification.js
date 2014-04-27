@@ -24,7 +24,7 @@ Notification.prototype.defaults = {
 };
 
 Notification.prototype.initialize = function(options) {
-  this.options = options;
+  this.options = options || {};
    _.defaults(this.options, this.defaults);
 
   if (!this.options.url) {
