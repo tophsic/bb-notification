@@ -1,16 +1,22 @@
-describe("Application", function () {
-  it("provides the 'Notification' function", function () {
-    expect(Notification).to.be.an("function");
+describe("Notification", function() {
+  before(function() {
+    this.Notification = require('notification');
   });
 
-  it("Notification instanciation", function () {
-    var notification = new Notification({
-        url: 'notification'
+  describe("instantiate", function() {
+    it("normally", function() {
+      var notification = new this.Notification({
+          url: 'notification'
+      });
+      expect(notification).to.be.an("object");
     });
-    expect(notification).to.be.an("object");
-  });
 
-  it("Notification instanciation error", function () {
-    expect(function() {new Notification();}).to.throw(Error);
+    it("with an error", function() {
+      var Notification = this.Notification,
+          fn = function() {
+            new Notification();
+          }
+      expect(fn).to.throw(Error);
+    });
   });
 });
