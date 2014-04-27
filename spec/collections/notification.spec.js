@@ -4,9 +4,6 @@ describe("Collection", function () {
     this.Collection = require('notification/collections/notification');
   });
 
-  after(function () {
-  });
-
   it("instantiate", function () {
     var collection = new this.Collection(null, {
         url: 'notification'
