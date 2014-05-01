@@ -52,31 +52,7 @@ gulp.task('vendors', function() {
         gulp.src([
             './bower_components/jquery/jquery.js',
             './bower_components/backbone/backbone.js',
-            './bower_components/humane-js/humane.js'
-        ]).pipe(wrap({ src: './gulp/commonjs-wrapper.js' }, { path: path })),
-
-        // amd modules
-        gulp.src([
-            './bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js',
-            './bower_components/jquery-file-upload/js/jquery.iframe-transport.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload-process.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload-image.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload-audio.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload-video.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload-validate.js',
-            './bower_components/jquery-file-upload/js/jquery.fileupload-ui.js'
-        ]).pipe(wrap({ src: './gulp/amd-wrapper.js' }, { path: path })),
-
-        // amd modules in jQuery context
-        gulp.src([
-            './bower_components/blueimp-tmpl/js/tmpl.js',
-            './bower_components/blueimp-load-image/js/load-image.js',
-            './bower_components/blueimp-load-image/js/load-image-meta.js',
-            './bower_components/blueimp-load-image/js/load-image-exif.js',
-            './bower_components/blueimp-load-image/js/load-image-ios.js',
-            './bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js'
-        ]).pipe(wrap({ src: './gulp/amd-wrapper.js' }, { path: path, context: 'jquery' }))
+        ]).pipe(wrap({ src: './gulp/commonjs-wrapper.js' }, { path: path }))
     ).pipe(build('vendors', './'));
 });
 
@@ -154,11 +130,6 @@ gulp.task('styles', function() {
             sass: './src/sass',
             require: ['susy']
         }))
-        .pipe(gulp.dest('./web/css'));
-    gulp.src([
-        './bower_components/humane-js/themes/jackedup.css',
-    ])
-        .pipe(concat('vendors.css'))
         .pipe(gulp.dest('./web/css'));
 });
 
