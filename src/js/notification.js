@@ -74,6 +74,10 @@ Notification.prototype.initialize = function(options) {
     collection: this.collection,
     items: this.options.items.item
   });
+
+  this.notification.on('toggle', function() {
+    this.items.$el.toggle();
+  }, this);
 };
 
 Notification.prototype.listen = function() {

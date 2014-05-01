@@ -12,6 +12,10 @@ var NotificationView = Backbone.View.extend({
     template: 'notification/templates/notification',
   },
 
+  events: {
+    "click .notification": "toggle",
+  },
+
   initialize: function(options) {
     this.options = options || {};
     _.defaults(this.options, this.defaults);
@@ -39,6 +43,10 @@ var NotificationView = Backbone.View.extend({
       collection: this.collection
     }));
     return this;
+  },
+
+  toggle: function() {
+    this.trigger('toggle');
   }
 });
 

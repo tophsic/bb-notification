@@ -92,5 +92,26 @@ describe("Notification view", function() {
 
   });
 
+  describe("trigger", function() {
+    beforeEach(function() {
+      this.view = new this.View({
+        el: this.$fixture,
+        collection: new Backbone.Collection()
+      });
+    });
+
+    afterEach(function() {
+      this.view.remove();
+    });
+
+    it("toggle", function() {
+      var fn = sinon.spy();
+      this.view.on('toggle', fn);
+      this.view.$('.notification').click();
+
+      expect(fn.called).to.be.true;
+    });
+  });
+
 
 });
