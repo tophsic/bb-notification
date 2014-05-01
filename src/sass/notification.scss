@@ -1,2 +1,69 @@
 .notification {
+    border: 1px solid blue;
 }
+
+.notifications {
+    position: absolute;
+    display: none;
+    z-index: 1010;
+    max-width: 276px;
+    padding: 1px;
+    margin-top: 10px;
+    text-align: left;
+    white-space: normal;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.notifications > .arrow {
+    display: block;
+    position: absolute;
+    left: 50%;
+    height: 11px;
+    width: 22px;
+    top: -11px;
+
+    margin-left: -11px;
+
+    border-width: 11px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.247059);
+    border-top-width: 0px;
+    box-sizing: border-box;
+
+    color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 20px;
+    text-align: left;
+    white-space: normal;
+}
+
+
+
+.notifications > .arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 10px;
+    content: " ";
+    top: 1px;
+    margin-left: -10px;
+    border-top-width: 0;
+    border-bottom-color: #fff;
+}
+
+.list-unstyled {
+    margin: 5px;
+    padding-left: 0;
+    list-style: none;
+}
+

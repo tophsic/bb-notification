@@ -9,7 +9,7 @@ describe("Items view", function() {
 
 
   before(function() {
-    this.$fixture = $("<div id='notification-items'></div>");
+    this.$fixture = $("<div id='notification-items' class='notifications'></div>");
     this.View = require('notification/views/items');
   });
 
@@ -60,8 +60,10 @@ describe("Items view", function() {
     });
 
     it("empty list", function() {
-      var $items = $("#notification-items ul");
+      var $items = $("#notification-items");
+      expect($items.css('display')).to.be.equal('none');
 
+      var $items = $("#notification-items ul");
       expect($items.hasClass("notification-items")).to.be.true;
     });
 
