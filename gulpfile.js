@@ -19,7 +19,7 @@ gulp.task('watch', function() {
     gulp.watch([
         './src/*.js',
         './src/**/*.js',
-        './src/templates/*.html'
+        './src/**/templates/*.html'
     ], ['notification']);
 
     gulp.watch(['./src/sass/*.scss'], ['styles']);
