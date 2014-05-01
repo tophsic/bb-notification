@@ -14,23 +14,25 @@
             var Notification = require('notification');
             var notification = new Notification({
                 url: "notification.php",
-                timeout: 1000,
+                timeout: 5000,
                 notification: {
-                    el: "#notification .notification"
+                    el: "#notification .notification-zone"
                 },
                 items: {
                     el: "#notification .notifications"
                 }
             });
             
-            notification.collection.fetch();
-            //notification.listen();
+            setTimeout(function() {
+                notification.collection.fetch();
+                notification.listen();
+            }, 2000);
         });
     </script>
   </head>
   <body>
     <div id="notification">
-        <div class="notification"></div>
+        <div class="notification-zone"></div>
         <div class="notifications"></div>
     </div>
     <div>

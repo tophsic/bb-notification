@@ -109,9 +109,21 @@ describe("Items view", function() {
       $items = $("#notification-items ul li");
 
       expect($items).to.have.length(1);
-      var message = $items.first().find('.message');
+      message = $items.first().find('.message');
       expect(message).to.be.ok;
       expect(message.text()).to.be.equal('Notification 3');
+
+
+      $items = $("#notification-items");
+      $items.css('display', 'block');
+      this.view.collection.trigger('sync', this.view.collection, [
+      ]);
+
+      expect($items.css('display')).to.be.equal('none');
+
+      $items = $("#notification-items ul li");
+      expect($items).to.have.length(0);
+
     });
   });
 

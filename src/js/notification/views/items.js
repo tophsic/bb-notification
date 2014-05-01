@@ -51,6 +51,10 @@ var ItemsView = Backbone.View.extend({
       content.push(itemView.render().el);
     });
 
+    if (notifications.length === 0) {
+      this.$el.hide();
+    }
+
     this.$('ul').html(content);
   }
 });

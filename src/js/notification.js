@@ -57,7 +57,6 @@ Notification.prototype.initialize = function(options) {
       ;
 
   this.collection = new Collection([
-      require(this.options.model)
   ], {
     url: this.options.url
   });
@@ -76,7 +75,9 @@ Notification.prototype.initialize = function(options) {
   });
 
   this.notification.on('toggle', function() {
-    this.items.$el.toggle();
+    if (this.collection.length > 0) {
+      this.items.$el.toggle();
+    }
   }, this);
 };
 

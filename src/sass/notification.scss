@@ -1,5 +1,48 @@
 .notification {
-    border: 1px solid blue;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.notification.notify {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.notification.notify:hover {
+  color: #fff;
+  background-color: #ed9c28;
+  border-color: #d58512;
+}
+
+.notification:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.notification:hover,
+.notification:focus {
+    color: #333;
+    text-decoration: none;
 }
 
 .notifications {
@@ -23,7 +66,7 @@
 .notifications > .arrow {
     display: block;
     position: absolute;
-    left: 50%;
+    left: 20%;
     height: 11px;
     width: 22px;
     top: -11px;
