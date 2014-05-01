@@ -10,6 +10,9 @@ var Backbone = require('backbone');
 var ItemView = Backbone.View.extend({
   template: _.template(require('notification/templates/item')),
 
+  tagName: 'li',
+  className: 'notification-item',
+
   initialize: function(options) {
     this.listenTo(this.model, {
       "change": this.render,

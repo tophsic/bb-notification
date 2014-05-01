@@ -30,14 +30,14 @@ describe("Item view", function() {
 
   describe("render", function() {
     it("an empty notification", function() {
-      var $message = $(".notification-item .message");
+      var $message = $("#notification-item .message");
 
       expect($message.text()).to.equal("This is an empty notification");
     });
 
     it("a normal notification", function(done) {
       this.view.model.once("change", function() {
-        var $message = $(".notification-item .message");
+        var $message = $("#notification-item .message");
 
         expect($message.text()).to.equal("Notification 1");
 
