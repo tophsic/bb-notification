@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="css/vendors.css" />
+    <link rel="stylesheet" href="css/notification.css" />
 
     <script src="js/vendors.js"></script>
     <script src="js/notification.js"></script>
@@ -16,10 +16,10 @@
                 url: "notification.php",
                 timeout: 1000,
                 notification: {
-                    el: "#notification"
+                    el: "#notification .notification"
                 },
                 items: {
-                    el: "#items .notifications"
+                    el: "#notification .notifications"
                 }
             });
             
@@ -29,10 +29,12 @@
     </script>
   </head>
   <body>
-    <div id="notification" class="btn btn-default"></div>
-    <div id="items" class="popover bottom" style="display: block;">
-        <div class="arrow"></div>
-        <div class="notifications popover-content"></div>
+    <div id="notification">
+        <div class="notification"></div>
+        <div class="notifications"></div>
+    </div>
+    <div>
+        Lorem ipsum
     </div>
   </body>
 </html>
